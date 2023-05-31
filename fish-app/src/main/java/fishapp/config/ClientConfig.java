@@ -8,20 +8,18 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import reactor.netty.http.client.HttpClient;
 
-
 @Configuration
 public class ClientConfig {
 
     @Bean
-    public WebClient getWebClient()
-    {
+    public WebClient getWebClient() {
         HttpClient httpClient = HttpClient.create();
 
         ClientHttpConnector connector = new ReactorClientHttpConnector(httpClient.wiretap(true));
 
         return WebClient.builder()
-            .clientConnector(connector)
-            .build();
+                .clientConnector(connector)
+                .build();
     }
-    
+
 }

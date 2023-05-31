@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ExecutorConfig {
-    
+
     @Bean
     public Executor asyncExecutor() {
         ThreadPoolTaskExecutor exec = new ThreadPoolTaskExecutor();

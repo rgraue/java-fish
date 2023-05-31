@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class LoggerConfig {
-    
+
     @Bean
-    public Logger getLogger (InjectionPoint ip) {
+    public Logger getLogger(InjectionPoint ip) {
         return LoggerFactory.getLogger(ip.getMember().getDeclaringClass());
     }
 
