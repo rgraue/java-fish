@@ -1,11 +1,22 @@
 version: '3.8'
 services:
+  java-app:
+    container_name: fish-app
+    image: fish-app:latest
+    build:
+      context: ../fish-app
+      dockerfile: ../fish-app/Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
   db:
     image: postgres:15-alpine
+    container_name: db
     restart: always
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRESS_PASSWORD=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
       - '5432:5432'
     volumes:
