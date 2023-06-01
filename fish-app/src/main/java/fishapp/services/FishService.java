@@ -12,7 +12,6 @@ import fishapp.utils.UUID;
 @Service
 public class FishService implements IFishService{
 
-    @Autowired
     private FishRepo fishRepo;
 
     @Autowired

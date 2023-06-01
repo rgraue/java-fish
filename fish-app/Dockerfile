@@ -3,7 +3,7 @@ FROM gradle:8.1.1-jdk11-alpine AS build
 WORKDIR /home
 
 COPY --chown=gradle:gradle . /home
-RUN gradle build --no-daemon
+RUN gradle bootjar --no-daemon
 
 FROM openjdk:11-jre-slim
 

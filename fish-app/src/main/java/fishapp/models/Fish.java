@@ -13,11 +13,12 @@ public class Fish {
     @Column(name = "name")
     private String Name;
 
+    public Fish() {
+    }
+
     public Fish(String name) {
         this.Name = name;
     }
-
-    public Fish (){}
 
     public void setId(int id) {
         this.Id = id;
@@ -37,7 +38,7 @@ public class Fish {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         return String.format("%s....%s", this.Name, this.Id);
     }
 
