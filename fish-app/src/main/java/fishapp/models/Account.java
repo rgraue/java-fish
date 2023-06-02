@@ -7,17 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int Id;
 
-    @Column(name = "firstname")
+    @Column(name = "first_name")
     private String FirstName;
 
-    @Column(name = "lastname")
+    @Column(name = "last_name")
     private String LastName;
 
     @Column(name = "email")
@@ -26,10 +26,10 @@ public class User {
     @Column(name = "password")
     private String Password;
 
-    public User (){
+    public Account (){
     }
 
-    public User (
+    public Account (
         String email,
         String password,
         String first,

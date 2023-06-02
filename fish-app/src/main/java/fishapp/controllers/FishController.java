@@ -48,7 +48,7 @@ public class FishController {
     }
 
     @PutMapping("/fish")
-    public String putFish(@RequestBody Fish fish) {
+    public String putFish(@RequestBody @Valid Fish fish) {
         this.logger.info("Creating fish");
         this.logger.info(fish.toString());
 

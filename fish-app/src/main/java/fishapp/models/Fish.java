@@ -10,7 +10,7 @@ public class Fish {
     @Column(name = "id")
     private int Id;
 
-    @Column(name = "userid")
+    @Column(name = "user_id")
     private String UserId;
 
     @Column(name = "species")
