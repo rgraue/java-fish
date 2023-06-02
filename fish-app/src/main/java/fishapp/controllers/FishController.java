@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import fishapp.models.Fish;
 import fishapp.services.FishService;
+import fishapp.utils.UUID;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -24,7 +25,6 @@ public class FishController {
         this.logger = logger;
     }
 
-
     @GetMapping("/")
     public String Home() {
         this.logger.info("hit /api");
@@ -34,29 +34,34 @@ public class FishController {
     @GetMapping("/fish")
     public String getFish() {
         this.logger.info("hit /api/fish");
-        List<Fish> allFish = this.fishService.getAllFish();
+        List<Fish> allFish = this.fishService.findAll();
+
+        final String result = "";
 
         allFish.forEach(fish -> {
-            logger.info(fish.toString());
+            result.concat(fish.toString());
         });
-        return "hello from fish";
+
+        return result;
     }
 
     @PutMapping("/fish")
-    public String putFish (@RequestBody String name) {
+    public String putFish(@RequestBody String name) {
         this.logger.info("Creating fish");
-        Fish result = this.fishService.createFish(name);
+
+        Fish dto = new Fish("test species");
+        dto.setId(UUID.getUUID());
+
+        Fish result = this.fishService.save(dto);
 
         return result.toString();
-
-        // return "hit";
     }
-
-
 
     @GetMapping("fish/{id}")
     public String getFishId(@PathVariable String id) {
-        this.logger.info(String.format("hit /api/fish/%s", id));
-        return String.format("Hello from frish: %s", id);
+        this.logger.info(String.format("finding fish: %s", id));
+        Fish fish = fishService.findByID(Integer.parseInt(id)).get();
+
+        return fish.toString();
     }
 }

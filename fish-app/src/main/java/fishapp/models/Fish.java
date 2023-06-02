@@ -10,14 +10,23 @@ public class Fish {
     @Column(name = "id")
     private int Id;
 
-    @Column(name = "name")
-    private String Name;
+    @Column(name = "userid")
+    private String UserId;
+
+    @Column(name = "species")
+    private String Species;
+
+    @Column(name = "length")
+    private double Length;
+
+    @Column(name = "weight")
+    private double Weight;
 
     public Fish() {
     }
 
-    public Fish(String name) {
-        this.Name = name;
+    public Fish(String species) {
+        this.Species = species;
     }
 
     public void setId(int id) {
@@ -29,17 +38,33 @@ public class Fish {
         return this.Id;
     }
 
-    public void setName(String name) {
-        this.Name = name;
+    public void setSpecies(String species) {
+        this.Species = species;
     }
 
-    public String getName() {
-        return this.Name;
+    public String getSpecies() {
+        return this.Species;
+    }
+
+    public void setLength(double length) {
+        this.Length = length;
+    }
+
+    public double getLength() {
+        return this.Length;
+    }
+
+    public void setWeight(double weigth) {
+        this.Weight = weigth;
+    }
+
+    public double getWeight() {
+        return this.Weight;
     }
 
     @Override
     public String toString() {
-        return String.format("%s....%s", this.Name, this.Id);
+        return String.format("%s....%s\n", this.Species, this.Id);
     }
 
 }

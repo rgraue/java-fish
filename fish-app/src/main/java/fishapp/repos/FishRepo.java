@@ -8,4 +8,5 @@ import fishapp.models.Fish;
 @Repository
 public interface FishRepo extends JpaRepository<Fish, Integer> {
     Fish findByName(String name);
+    Fish findByUser(String userId);
 }
