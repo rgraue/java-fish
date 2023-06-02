@@ -32,6 +32,6 @@ public class FishService implements IDataService<Fish>{
     }
 
     public Fish findByName(String name) {
-        return fishRepo.findByName(name);
+        return fishRepo.findBySpecies(name);
     }
 }
