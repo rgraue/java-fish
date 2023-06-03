@@ -1,10 +1,11 @@
 # !/bin/bash
-echo "buidling app images\n"
+
+echo "buidling client images\n"
 STARTTIME=$(date +%s)
 
-cd "./fish-app/"
+cd "./fish-client/"
 
-docker build -t "fish-app:latest" .
+docker build -t "fish-client:latest" .
 
 ENDTIME=$(date +%s)
 DIF=$(($ENDTIME - $STARTTIME))

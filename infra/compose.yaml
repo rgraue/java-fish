@@ -1,6 +1,14 @@
 version: '3.8'
 services:
-  java-app:
+  fish-client:
+    container_name: fish-client
+    image: fish-client:latest
+    build:
+      context: ../fish-client
+      dockerfile: ../fish-client/Dockerfile
+    ports:
+      - '3000:3000'
+  fish-app:
     container_name: fish-app
     image: fish-app:latest
     build:
